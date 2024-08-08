@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package pbM;
+
+option go_package = "./";
+
+service MenuService{
+    rpc CreateMenu(MenuItem)returns(MenuResponse);
+    rpc FetchByMenuID(MenuID)returns(MenuItem);
+    rpc FetchByName(FoodByName)returns(MenuItem);
+    rpc FetchMenus(NoParam)returns(MenuList);
+}
+
+message NoParam{}
+
+message MenuItem{
+    uint32 id = 1;
+    string category =2;
+    string name = 3;
+    double price = 4;
+    string foodimage =5;
+    string duration = 6;  
+}
+
+message MenuID{
+    uint32 id = 1;
+}
+
+message FoodByName{
+     string name = 1;
+}
+
+message MenuList{
+    repeated MenuItem item = 1;
+}
+
+message MenuResponse{
+    string staus = 1;
+    string error = 2;
+    string message = 3;
+}
