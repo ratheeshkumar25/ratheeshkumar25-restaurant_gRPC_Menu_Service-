@@ -33,7 +33,7 @@ func (u *MenuRepo) FetchByMenuID(id uint) (*model.Menu, error) {
 // FetchByName retrieves a menu item by its name
 func (u *MenuRepo) FetchByName(name string) (*model.Menu, error) {
 	var menu model.Menu
-	err := u.DB.Where("menu_name = ?", name).First(&menu).Error
+	err := u.DB.Where("name = ?", name).First(&menu).Error
 	return &menu, err
 }
 

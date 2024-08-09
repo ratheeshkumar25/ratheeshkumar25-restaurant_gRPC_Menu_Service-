@@ -42,7 +42,7 @@ func (m *MenuHandlers) FetchByName(ctx context.Context, p *pb.FoodByName) (*pb.M
 	return result, err
 }
 
-func (m *MenuHandlers) FetchByMenus(ctx context.Context, p *pb.NoParam) (*pb.MenuList, error) {
+func (m *MenuHandlers) FetchMenus(ctx context.Context, p *pb.NoParam) (*pb.MenuList, error) {
 	result, err := m.svc.FetchMenus(p)
 	if err != nil {
 		return nil, err
